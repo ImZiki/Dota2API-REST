@@ -139,4 +139,6 @@ guarda en forma de numero entero la cantidad de veces que un heroe tiene un obje
 
 Cada heroe puede tener varios objetos y varios objetos pueden estar en varios heroes al mismo tiempo y multiples veces.
 
-
+---
+**Diagrama E/R**
+![Captura de pantalla 2024-12-04 210901](https://github.com/user-attachments/assets/accc1fba-01ec-4e71-a1f4-3e15b544cc65)
