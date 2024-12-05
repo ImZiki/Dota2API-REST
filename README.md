@@ -2,16 +2,16 @@
 Trabajo de DAW para DWES
 
 ## **Nombre del proyecto**
--
+
 Dota 2 API
 
 ## **Idea**
--
+
 API REST que brinde informacion sobre heroes y objetos de Dota2
 
 
 ## **Justificacion del proyecto**
--
+
 Esta API sería una herramienta util a la hora de construir paginas web como Dotabuff.com que se nutren de APIs REST de Dota 2 para mostrar informacion de jugadores, partidas, heroes y objetos aparte de noticias de interés en el mundillo de Dota.
 
 
