@@ -7,7 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
+
 
 @Entity
 @Table(name="heroe")
@@ -43,6 +45,21 @@ public class Heroe{
     @Column(name="historia", length = 65535)
     private String historia;
 
+    public Heroe(String nombre, Long danioFisico, Long danioMagico, Long inteligencia, Long fuerza, Long agilidad, Long vida, Long mana, String historia, List<HeroeObjeto> objetos) {
+        this.nombre = nombre;
+        this.danioFisico = danioFisico;
+        this.danioMagico = danioMagico;
+        this.inteligencia = inteligencia;
+        this.fuerza = fuerza;
+        this.agilidad = agilidad;
+        this.vida = vida;
+        this.mana = mana;
+        this.historia = historia;
+        this.objetos = objetos;
+    }
+
+    @OneToMany(mappedBy = "heroe", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<HeroeObjeto> objetos;
 
 
 

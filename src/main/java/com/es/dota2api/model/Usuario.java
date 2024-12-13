@@ -28,4 +28,10 @@ public class Usuario {
 
     @Column(name= "roles")
     private Roles rol;
+
+    public Usuario(String username, String password, Roles rol) {
+        this.username = username;
+        this.password = password;
+        this.rol = rol;
+    }
 }

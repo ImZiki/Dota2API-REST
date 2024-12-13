@@ -1,4 +1,4 @@
-package com.es.jwtsecurity.security;
+package com.es.dota2api.security;
 
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
@@ -32,8 +32,6 @@ public class SecurityConfig {
 
     @Autowired
     private RsaKeyProperties rsaKeys;
-    @Autowired
-    private SecurityService securityService;
 
     /**
      * BEAN QUE ESTABLECE EL SECURITY FILTER CHAIN

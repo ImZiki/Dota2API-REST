@@ -1,4 +1,4 @@
-package com.es.jwtsecurity.error;
+package com.es.dota2api.error;
 
 public class ErrorMessageForClient {
     private String message;
