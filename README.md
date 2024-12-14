@@ -21,23 +21,23 @@ Esta tabla representa a los usuarios de la API que podrán hacer uso de los dife
 
 ### **Atributos**
 - **uid**
-    - Tipo: `LONG`
-    - Descripción: Identificador único generado automáticamente por la base de datos. Clave primaria.
+  - Tipo: `LONG`
+  - Descripción: Identificador único generado automáticamente por la base de datos. Clave primaria.
 
 - **username**
-    - Tipo: `VARCHAR(50)`
-    - Descripción: Nombre único de usuario. Campo obligatorio y no nulo.
+  - Tipo: `VARCHAR(50)`
+  - Descripción: Nombre único de usuario. Campo obligatorio y no nulo.
 
 - **password**
-    - Tipo: `VARCHAR(255)`
-    - Descripción: Contraseña hasheada del usuario. Campo obligatorio y no nulo.
+  - Tipo: `VARCHAR(255)`
+  - Descripción: Contraseña hasheada del usuario. Campo obligatorio y no nulo.
 
 - **rol**
-    - Tipo: `VARCHAR`
-    - Descripción: Rol del usuario. Puede contener los valores:
-        - **USER**: Rol por defecto asignado a los usuarios que se registran.
-        - **ADMIN**: Rol especial con permisos para añadir, borrar y actualizar héroes y objetos en la base de datos.
-    - Campo obligatorio.
+  - Tipo: `VARCHAR`
+  - Descripción: Rol del usuario. Puede contener los valores:
+    - **USER**: Rol por defecto asignado a los usuarios que se registran.
+    - **ADMIN**: Rol especial con permisos para añadir, borrar y actualizar héroes y objetos en la base de datos.
+  - Campo obligatorio.
 
 ---
 ## **Tabla Héroes**
@@ -45,36 +45,36 @@ Guarda información sobre los héroes del videojuego Dota 2. Cada héroe tiene c
 
 ### **Atributos**
 - **uid**
-    - Tipo: `LONG`
-    - Descripción: Identificador único generado automáticamente por la base de datos. Clave primaria.
+  - Tipo: `LONG`
+  - Descripción: Identificador único generado automáticamente por la base de datos. Clave primaria.
 
 - **nombre_heroe**
-    - Tipo: `VARCHAR(100)`
-    - Descripción: Nombre único del héroe. Campo obligatorio y no nulo.
+  - Tipo: `VARCHAR(100)`
+  - Descripción: Nombre único del héroe. Campo obligatorio y no nulo.
 
 - **inteligencia**
-    - Tipo: `LONG`
-    - Descripción: Estadística de inteligencia del héroe. Campo obligatorio con un valor mínimo de `0`.
+  - Tipo: `LONG`
+  - Descripción: Estadística de inteligencia del héroe. Campo obligatorio con un valor mínimo de `0`.
 
 - **fuerza**
-    - Tipo: `LONG`
-    - Descripción: Estadística de fuerza del héroe. Campo obligatorio con un valor mínimo de `0`.
+  - Tipo: `LONG`
+  - Descripción: Estadística de fuerza del héroe. Campo obligatorio con un valor mínimo de `0`.
 
 - **agilidad**
-    - Tipo: `LONG`
-    - Descripción: Estadística de agilidad del héroe. Campo obligatorio con un valor mínimo de `0`.
+  - Tipo: `LONG`
+  - Descripción: Estadística de agilidad del héroe. Campo obligatorio con un valor mínimo de `0`.
 
 - **vida**
-    - Tipo: `LONG`
-    - Descripción: Vida base del héroe. Campo obligatorio.
+  - Tipo: `LONG`
+  - Descripción: Vida base del héroe. Campo obligatorio.
 
 - **mana**
-    - Tipo: `LONG`
-    - Descripción: Cantidad de maná base del héroe. Puede ser nulo.
+  - Tipo: `LONG`
+  - Descripción: Cantidad de maná base del héroe. Puede ser nulo.
 
 - **historia_heroe**
-    - Tipo: `TEXT`
-    - Descripción: Breve descripción narrativa sobre el héroe. Campo obligatorio.
+  - Tipo: `TEXT`
+  - Descripción: Breve descripción narrativa sobre el héroe. Campo obligatorio.
 
 ---
 
@@ -83,40 +83,40 @@ Guarda información sobre los objetos que los héroes pueden usar para mejorar s
 
 ### **Atributos**
 - **uid**
-    - Tipo: `LONG`
-    - Descripción: Identificador único generado automáticamente por la base de datos. Clave primaria.
+  - Tipo: `LONG`
+  - Descripción: Identificador único generado automáticamente por la base de datos. Clave primaria.
 
 - **nombre_objeto**
-    - Tipo: `VARCHAR(100)`
-    - Descripción: Nombre único del objeto. Campo obligatorio y no nulo.
+  - Tipo: `VARCHAR(100)`
+  - Descripción: Nombre único del objeto. Campo obligatorio y no nulo.
 
 - **daño_fisico**
-    - Tipo: `LONG`
-    - Descripción: Daño físico adicional que proporciona el objeto. Campo obligatorio con un valor mínimo de `5`.
+  - Tipo: `LONG`
+  - Descripción: Daño físico adicional que proporciona el objeto. Campo obligatorio con un valor mínimo de `5`.
 
 - **daño_magico**
-    - Tipo: `LONG`
-    - Descripción: Daño mágico adicional que proporciona el objeto. Campo opcional, pero si tiene valor, debe ser al menos `5`.
+  - Tipo: `LONG`
+  - Descripción: Daño mágico adicional que proporciona el objeto. Campo opcional, pero si tiene valor, debe ser al menos `5`.
 
 - **vida_adicional**
-    - Tipo: `LONG`
-    - Descripción: Vida adicional que otorga el objeto. Campo opcional, pero si tiene valor, debe ser al menos `50`.
+  - Tipo: `LONG`
+  - Descripción: Vida adicional que otorga el objeto. Campo opcional, pero si tiene valor, debe ser al menos `50`.
 
 - **mana_adicional**
-    - Tipo: `LONG`
-    - Descripción: Maná adicional que otorga el objeto. Campo opcional, pero si tiene valor, debe ser al menos `50`.
+  - Tipo: `LONG`
+  - Descripción: Maná adicional que otorga el objeto. Campo opcional, pero si tiene valor, debe ser al menos `50`.
 
 - **regeneracion_mana**
-    - Tipo: `DECIMAL`
-    - Descripción: Tasa de regeneración de maná proporcionada por el objeto. Campo opcional, pero si tiene valor, debe ser al menos `0.5`.
+  - Tipo: `DECIMAL`
+  - Descripción: Tasa de regeneración de maná proporcionada por el objeto. Campo opcional, pero si tiene valor, debe ser al menos `0.5`.
 
 - **regeneracion_vida**
-    - Tipo: `DECIMAL`
-    - Descripción: Tasa de regeneración de vida proporcionada por el objeto. Campo opcional, pero si tiene valor, debe ser al menos `0.5`.
+  - Tipo: `DECIMAL`
+  - Descripción: Tasa de regeneración de vida proporcionada por el objeto. Campo opcional, pero si tiene valor, debe ser al menos `0.5`.
 
 - **descripcion_objeto**
-    - Tipo: `TEXT`
-    - Descripción: Descripción narrativa sobre el objeto. Campo opcional.
+  - Tipo: `TEXT`
+  - Descripción: Descripción narrativa sobre el objeto. Campo opcional.
 
 ---
 
@@ -125,16 +125,16 @@ Define la relación entre los héroes y los objetos, representando un vínculo *
 
 ### **Atributos**
 - **id_objeto**
-    - Tipo: `LONG`
-    - Descripción: Identificador del objeto, clave foránea que enlaza con `uid` de la tabla **Objetos**.
+  - Tipo: `LONG`
+  - Descripción: Identificador del objeto, clave foránea que enlaza con `uid` de la tabla **Objetos**.
 
 - **id_heroe**
-    - Tipo: `LONG`
-    - Descripción: Identificador del héroe, clave foránea que enlaza con `uid` de la tabla **Héroes**.
+  - Tipo: `LONG`
+  - Descripción: Identificador del héroe, clave foránea que enlaza con `uid` de la tabla **Héroes**.
 
 - **cantidad_objeto**
-    - Tipo: `LONG`
-    - Descripción: Cantidad de veces que un héroe posee un objeto específico.
+  - Tipo: `LONG`
+  - Descripción: Cantidad de veces que un héroe posee un objeto específico.
 
 ---
 
@@ -164,20 +164,20 @@ Cada heroe puede tener varios objetos y varios objetos pueden estar en varios he
 - **Método:** POST
 - **Descripción:** Crea un nuevo héroe en el sistema.
 - **Parámetros:**
-    - **Cuerpo:** Datos del héroe (nombre, estadísticas, historia, etc.).
+  - **Cuerpo:** Datos del héroe (nombre, estadísticas, historia, etc.).
 
 ### **PUT /dota2/heroes/{id}**
 - **Método:** PUT
 - **Descripción:** Actualiza los datos de un héroe específico identificado por su ID.
 - **Parámetros:**
-    - **URL:** `id` del héroe a actualizar.
-    - **Cuerpo:** Datos del héroe actualizados (nombre, estadísticas, historia, etc.).
+  - **URL:** `id` del héroe a actualizar.
+  - **Cuerpo:** Datos del héroe actualizados (nombre, estadísticas, historia, etc.).
 
 ### **DELETE /dota2/heroes/{id}**
 - **Método:** DELETE
 - **Descripción:** Elimina un héroe específico del sistema usando su ID.
 - **Parámetro:**
-    - **URL:** `id` del héroe a eliminar.
+  - **URL:** `id` del héroe a eliminar.
 
 ## 2. Endpoints para Objetos
 
@@ -194,20 +194,20 @@ Cada heroe puede tener varios objetos y varios objetos pueden estar en varios he
 - **Método:** POST
 - **Descripción:** Crea un nuevo objeto en el sistema.
 - **Parámetros:**
-    - **Cuerpo:** Datos del objeto (nombre, atributos, descripción, etc.).
+  - **Cuerpo:** Datos del objeto (nombre, atributos, descripción, etc.).
 
 ### **PUT /dota2/objetos/{id}**
 - **Método:** PUT
 - **Descripción:** Actualiza los datos de un objeto específico identificado por su ID.
 - **Parámetros:**
-    - **URL:** `id` del objeto a actualizar.
-    - **Cuerpo:** Datos del objeto actualizados (nombre, atributos, descripción, etc.).
+  - **URL:** `id` del objeto a actualizar.
+  - **Cuerpo:** Datos del objeto actualizados (nombre, atributos, descripción, etc.).
 
 ### **DELETE /dota2/objetos/{id}**
 - **Método:** DELETE
 - **Descripción:** Elimina un objeto específico del sistema usando su ID.
 - **Parámetro:**
-    - **URL:** `id` del objeto a eliminar.
+  - **URL:** `id` del objeto a eliminar.
 
 
 
@@ -216,22 +216,18 @@ Cada heroe puede tener varios objetos y varios objetos pueden estar en varios he
 Estos endpoints permiten a los usuarios autenticados con el rol USER acceder a información básica, pero no realizar modificaciones.
 
 - **GET /dota2/heroes**
-    - Devuelve una lista de todos los héroes disponibles en el sistema con sus detalles básicos.
+  - Devuelve una lista de todos los héroes disponibles en el sistema con sus detalles básicos.
 
 - **GET /dota2/heroes/{id}**
-    - Devuelve los detalles completos de un héroe específico.
+  - Devuelve los detalles completos de un héroe específico.
 
 - **GET /dota2/objetos**
-    - Devuelve una lista de todos los objetos disponibles en el sistema con sus detalles básicos.
+  - Devuelve una lista de todos los objetos disponibles en el sistema con sus detalles básicos.
 
 - **GET /dota2/objetos/{id}**
-    - Devuelve los detalles completos de un objeto específico.
+  - Devuelve los detalles completos de un objeto específico.
 
-- **GET /dota2/heroes/{id}/objetos**
-    - Devuelve la lista de objetos que posee un héroe específico.
 
-- **GET /dota2/objetos/{id}/heroes**
-    - Devuelve una lista de héroes que poseen un objeto específico.
 
 ## Endpoints protegidos (accesibles solo por ROLE_ADMIN)
 
@@ -304,18 +300,6 @@ Estos endpoints están limitados a usuarios con el rol **ADMIN** porque implican
 
 ---
 
-### 3. Lógica de negocio para la relación Héroe-Objeto
-
-#### a) Comprobación de relaciones existentes
-- Al asignar un objeto a un héroe, verificar si este ya tiene dicho objeto. Si es así, actualizar la cantidad en lugar de duplicar la entrada en la tabla de relaciones.
-
-#### b) Creación de relaciones
-- Si un héroe no tiene un objeto asignado, crear una nueva relación en la tabla `heroe_objeto`.
-- Controlar la cantidad del objeto asignado para evitar que un héroe tenga más de la cantidad permitida.
-
-#### c) Eliminación de relaciones
-- Al eliminar un objeto o un héroe, asegurarse de que las relaciones asociadas se eliminen o actualicen adecuadamente para evitar inconsistencias.
-
 ## Excepciones
 
 ### 1. `HeroNotFoundException`
@@ -336,8 +320,8 @@ Estos endpoints están limitados a usuarios con el rol **ADMIN** porque implican
 
 ### 3. `InvalidHeroDataException`
 - **Descripción**: Esta excepción se lanza cuando los datos proporcionados para crear o actualizar un héroe no son válidos. Ejemplos:
-    - Estadísticas fuera de rango permitido.
-    - Campos obligatorios faltantes.
+  - Estadísticas fuera de rango permitido.
+  - Campos obligatorios faltantes.
 - **Razón**: Validar los datos de entrada asegura que el héroe tenga valores consistentes y completos.
 - **Uso**: Al crear o actualizar un héroe con datos inválidos.
 - **Código de estado**: `400 Bad Request`.
@@ -354,7 +338,7 @@ Estos endpoints están limitados a usuarios con el rol **ADMIN** porque implican
 
 ### 5. `UnauthorizedActionException`
 - **Descripción**: Esta excepción se lanza cuando un usuario intenta realizar una acción para la cual no tiene permisos. Ejemplo:
-    - Un usuario con rol `USER` intentando crear o eliminar héroes y objetos.
+  - Un usuario con rol `USER` intentando crear o eliminar héroes y objetos.
 - **Razón**: Protege los endpoints restringidos, asegurando que solo los administradores (`ROLE_ADMIN`) puedan realizar acciones sensibles.
 - **Uso**: Cuando un usuario no autorizado intenta realizar una operación restringida.
 - **Código de estado**: `403 Forbidden`.
