@@ -19,10 +19,10 @@ public class HeroeController {
     @Autowired
     private HeroeService heroeService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<?> getAllHeroes() {
         List<HeroeDTO> heroes = heroeService.getAllHeroes();
-        return ResponseEntity.ok(heroes);
+        return new ResponseEntity<>(heroes, HttpStatus.OK);
     }
 
    // Obtener un héroe por su ID
@@ -30,34 +30,29 @@ public class HeroeController {
     public ResponseEntity<?> getHeroById(@PathVariable String id) {
         HeroeDTO heroe = heroeService.getHeroById(id);
         if (heroe == null) throw new HeroNotFoundException("Heroe no encontrado");
-        return ResponseEntity.ok(heroe);
+        return new ResponseEntity<>(heroe, HttpStatus.OK);
     }
 
     // Crear un nuevo héroe
     @PostMapping("/")
     public ResponseEntity<?> createHero(@RequestBody HeroeDTO heroeDTO) {
-        Heroe nuevoHeroe = mapper.;
-        return ResponseEntity.status(HttpStatus.CREATED).body(heroeDTO);
+        return new ResponseEntity<>(heroeService.createHero(heroeDTO), HttpStatus.CREATED);
     }
 
     // Actualizar un héroe existente
     @PutMapping("/{id}")
-    public ResponseEntity<Hero> updateHero(@PathVariable Long id, @RequestBody Hero hero) {
-        Hero updatedHero = heroService.updateHero(id, hero);
-        if (updatedHero == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-        return ResponseEntity.ok(updatedHero);
+    public ResponseEntity<?> updateHero(@PathVariable String id, @RequestBody HeroeDTO heroeDTO) {
+        if (heroeDTO == null) throw new IllegalArgumentException("Heroe nulo");
+
+        return new ResponseEntity<>(heroeService.updateHero(id , heroeDTO), HttpStatus.OK);
     }
 
     // Eliminar un héroe por su ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteHero(@PathVariable Long id) {
-        boolean isDeleted = heroService.deleteHero(id);
-        if (!isDeleted) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return ResponseEntity.noContent().build();
-    }*/
+    public ResponseEntity<?> deleteHero(@PathVariable String id) {
+        if (id == null || id.isEmpty()) throw new IllegalArgumentException("ID nulo");
+        heroeService.deleteHero(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
 }

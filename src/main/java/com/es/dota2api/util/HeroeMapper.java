@@ -1,24 +1,47 @@
-package com.es.dota2api.util;
-
-
+package com.es.dota2api.util
+        ;
 
 import com.es.dota2api.dto.HeroeDTO;
 import com.es.dota2api.model.Heroe;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = "spring")
-public interface HeroeMapper {
 
-    HeroeMapper INSTANCE = Mappers.getMapper(HeroeMapper.class);
+@Component
+public class HeroeMapper {
 
-    // Mapeo de la entidad Heroe a HeroeDTO
-    HeroeDTO heroeToHeroeDTO(Optional<Heroe> heroe);
+    // Método para mapear de HeroeDTO a Heroe
+    public static Heroe toEntity(HeroeDTO dto) {
+        if (dto == null) {
+            return null;
+        }
 
-    // Mapeo de HeroeDTO a la entidad Heroe
-    Heroe heroeDTOToHeroe(HeroeDTO heroeDTO);
+        Heroe heroe = new Heroe();
+        heroe.setNombre(dto.getNombre());
+        heroe.setInteligencia(Long.valueOf(dto.getInteligencia()));
+        heroe.setFuerza(Long.valueOf(dto.getFuerza()));
+        heroe.setAgilidad(Long.valueOf(dto.getAgilidad()));
+        heroe.setVida(Long.valueOf(dto.getVida()));
+        heroe.setMana(Long.valueOf(dto.getMana()));
+        heroe.setHistoria(dto.getHistoria());
 
-    List<HeroeDTO> heroesToHeroeDTOs(List<Heroe> heroes);
+        return heroe;
+    }
+
+    // Método para mapear de Heroe a HeroeDTO
+    public static HeroeDTO toDTO(Heroe heroe) {
+        if (heroe == null) {
+            return null;
+        }
+
+        HeroeDTO dto = new HeroeDTO();
+        dto.setNombre(heroe.getNombre());
+        dto.setInteligencia(String.valueOf(heroe.getInteligencia()));
+        dto.setFuerza(String.valueOf(heroe.getFuerza()));
+        dto.setAgilidad(String.valueOf(heroe.getAgilidad()));
+        dto.setVida(String.valueOf(heroe.getVida()));
+        dto.setMana(String.valueOf(heroe.getMana()));
+        dto.setHistoria(heroe.getHistoria());
+
+        return dto;
+    }
 }

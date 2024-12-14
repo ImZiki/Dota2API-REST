@@ -9,6 +9,7 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 
 import org.springframework.security.config.Customizer;
@@ -50,8 +51,18 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable()) // Deshabilitamos "Cross-Site Request Forgery" (CSRF) (No lo trataremos en este ciclo)
                 .authorizeHttpRequests(auth -> auth // Filtros para securizar diferentes endpoints de la aplicación
-                                .requestMatchers("/usuario/login", "/usuario/register").permitAll() // Filtro que deja pasar todas las peticiones que vayan a los endpoints que definamos
-                                .anyRequest().permitAll()// Para el resto de peticiones, el usuario debe estar autenticado
+                                .requestMatchers("/usuarios/login", "/usuarios/register").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/heroes/").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/heroes/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/heroes/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/objetos/").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/objetos/{id]}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/objetos/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/heroes/").hasRole("USER")
+                                .requestMatchers(HttpMethod.GET, "/heroes/{id}").hasRole("USER")
+                                .requestMatchers(HttpMethod.GET, "/objetos/").hasRole("USER")
+                                .requestMatchers(HttpMethod.GET, "/objetos/{id}").hasRole("USER")
+
                 )
                 .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults())) // Establecemos el que el control de autenticación se realice por JWT
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

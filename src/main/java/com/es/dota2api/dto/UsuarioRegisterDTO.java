@@ -2,6 +2,7 @@ package com.es.dota2api.dto;
 
 
 
+import com.es.dota2api.model.Roles;
 import lombok.*;
 
 @Getter
@@ -11,5 +12,9 @@ import lombok.*;
 public class UsuarioRegisterDTO {
     private String username;
     private String password;
-    private String rol;
+    private Roles rol;
+
+    public UsuarioRegisterDTO() {
+
+    }
 }

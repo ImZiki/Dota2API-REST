@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class APIExceptionHandler {
 
 
-    @ExceptionHandler({InvalidHeroDataException.class, InvalidObjectDataException.class, InsufficientDataException.class})
+    @ExceptionHandler({InvalidHeroDataException.class, InvalidObjectDataException.class, InsufficientDataException.class, NumberFormatException.class, NullPointerException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public ErrorMessageForClient BadRequestHandler(HttpServletRequest request, Exception e) {
@@ -46,6 +46,12 @@ public class APIExceptionHandler {
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
     public ErrorMessageForClient ConflictHandler(HttpServletRequest request, Exception e) {
+        return new ErrorMessageForClient(e.getMessage(), request.getRequestURI());
+    }
+    @ExceptionHandler({InternalServerErrorException.class, Exception.class})
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public ErrorMessageForClient InternalServerErrorHandler(HttpServletRequest request, Exception e) {
         return new ErrorMessageForClient(e.getMessage(), request.getRequestURI());
     }
 }
