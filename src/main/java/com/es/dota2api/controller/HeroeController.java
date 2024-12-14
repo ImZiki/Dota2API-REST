@@ -3,7 +3,6 @@ package com.es.dota2api.controller;
 
 import com.es.dota2api.dto.HeroeDTO;
 import com.es.dota2api.error.exception.HeroNotFoundException;
-import com.es.dota2api.model.Heroe;
 import com.es.dota2api.service.HeroeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/heroes")

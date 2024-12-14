@@ -8,12 +8,12 @@ import lombok.*;
 @AllArgsConstructor
 public class ObjetoDTO {
     private String nombre;
-    private Long danioFisico;
-    private Long danioMagico;
-    private Long vida;
-    private Long mana;
-    private Float regenMana;
-    private Float regenVida;
+    private String danioFisico;
+    private String danioMagico;
+    private String vida;
+    private String mana;
+    private String  regenMana;
+    private String  regenVida;
     private String descripcion;
 
     public ObjetoDTO() {
