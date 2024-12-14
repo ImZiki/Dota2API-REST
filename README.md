@@ -227,11 +227,7 @@ Estos endpoints permiten a los usuarios autenticados con el rol USER acceder a i
 - **GET /dota2/objetos/{id}**
     - Devuelve los detalles completos de un objeto específico.
 
-- **GET /dota2/heroes/{id}/objetos**
-    - Devuelve la lista de objetos que posee un héroe específico.
 
-- **GET /dota2/objetos/{id}/heroes**
-    - Devuelve una lista de héroes que poseen un objeto específico.
 
 ## Endpoints protegidos (accesibles solo por ROLE_ADMIN)
 
@@ -303,18 +299,6 @@ Estos endpoints están limitados a usuarios con el rol **ADMIN** porque implican
 - Asegurarse de que el objeto no esté en uso por ningún héroe. De lo contrario, gestionar adecuadamente las relaciones en la tabla `heroe_objeto` para evitar referencias inválidas.
 
 ---
-
-### 3. Lógica de negocio para la relación Héroe-Objeto
-
-#### a) Comprobación de relaciones existentes
-- Al asignar un objeto a un héroe, verificar si este ya tiene dicho objeto. Si es así, actualizar la cantidad en lugar de duplicar la entrada en la tabla de relaciones.
-
-#### b) Creación de relaciones
-- Si un héroe no tiene un objeto asignado, crear una nueva relación en la tabla `heroe_objeto`.
-- Controlar la cantidad del objeto asignado para evitar que un héroe tenga más de la cantidad permitida.
-
-#### c) Eliminación de relaciones
-- Al eliminar un objeto o un héroe, asegurarse de que las relaciones asociadas se eliminen o actualicen adecuadamente para evitar inconsistencias.
 
 ## Excepciones
 
