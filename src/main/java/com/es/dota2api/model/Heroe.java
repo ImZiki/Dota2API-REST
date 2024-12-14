@@ -2,10 +2,7 @@ package com.es.dota2api.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -13,10 +10,10 @@ import java.util.Objects;
 
 @Entity
 @Table(name="heroe")
+
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Heroe{
 
     @Id
@@ -24,14 +21,8 @@ public class Heroe{
     @Column(name="uid")
     private Long id;
 
-    @Column(name="nombre_heroe", unique = true, nullable = false)
+    @Column(name="nombre", unique = true, nullable = false)
     private String nombre;
-
-    @Column(name= "danio_fisico", nullable = false, length = 5)
-    private Long danioFisico;
-
-    @Column(name="danio_magico", length = 5)
-    private Long danioMagico;
     @Column(name="inteligencia", nullable = false)
     private Long inteligencia;
     @Column(name="fuerza", nullable = false)
@@ -45,21 +36,17 @@ public class Heroe{
     @Column(name="historia", length = 65535)
     private String historia;
 
-    public Heroe(String nombre, Long danioFisico, Long danioMagico, Long inteligencia, Long fuerza, Long agilidad, Long vida, Long mana, String historia, List<HeroeObjeto> objetos) {
+    public Heroe(String nombre, Long inteligencia, Long fuerza, Long agilidad, Long vida, Long mana, String historia) {
         this.nombre = nombre;
-        this.danioFisico = danioFisico;
-        this.danioMagico = danioMagico;
+
         this.inteligencia = inteligencia;
         this.fuerza = fuerza;
         this.agilidad = agilidad;
         this.vida = vida;
         this.mana = mana;
         this.historia = historia;
-        this.objetos = objetos;
-    }
 
-    @OneToMany(mappedBy = "heroe", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<HeroeObjeto> objetos;
+    }
 
 
 

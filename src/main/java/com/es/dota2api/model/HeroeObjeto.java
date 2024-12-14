@@ -2,9 +2,13 @@ package com.es.dota2api.model;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "heroe_objeto")
+@NoArgsConstructor
 public class HeroeObjeto {
 
     @Id

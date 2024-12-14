@@ -1,10 +1,7 @@
 package com.es.dota2api.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 import java.util.Objects;
@@ -15,15 +12,14 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Objeto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="uid")
     private Long id;
-    @Column(name="nombre_objeto", unique = true, nullable = false)
+    @Column(name="nombre", unique = true, nullable = false)
     private String nombre;
-    @Column(name= "danio_fisico", nullable = false)
+    @Column(name= "danio_fisico")
     private Long danioFisico;
     @Column(name="danio_magico")
     private Long danioMagico;
@@ -35,10 +31,8 @@ public class Objeto {
     private Float regenMana;
     @Column(name="vida_regen")
     private Float regenVida;
-
-
-    @OneToMany(mappedBy = "objeto", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<HeroeObjeto> heroes;
+    @Column(nullable = false)
+    private String descripcion;
 
     @Override
     public boolean equals(Object o) {
@@ -52,7 +46,7 @@ public class Objeto {
         return Objects.hashCode(nombre);
     }
 
-    public Objeto(String nombre, Long danioFisico, Long danioMagico, Long vida, Long mana, Float regenMana, Float regenVida, List<HeroeObjeto> heroes) {
+    public Objeto(String nombre, Long danioFisico, Long danioMagico, Long vida, Long mana, Float regenMana, Float regenVida, String descripcion) {
         this.nombre = nombre;
         this.danioFisico = danioFisico;
         this.danioMagico = danioMagico;
@@ -60,6 +54,6 @@ public class Objeto {
         this.mana = mana;
         this.regenMana = regenMana;
         this.regenVida = regenVida;
-        this.heroes = heroes;
+        this.descripcion = descripcion;
     }
 }
