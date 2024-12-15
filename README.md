@@ -145,7 +145,9 @@ Cada heroe puede tener varios objetos y varios objetos pueden estar en varios he
 
 ---
 **Diagrama E/R**
-![Captura de pantalla 2024-12-04 210901](https://github.com/user-attachments/assets/accc1fba-01ec-4e71-a1f4-3e15b544cc65)
+![image](https://github.com/user-attachments/assets/66be87ad-bd25-4699-b970-a172ebb81436)
+
+
 # Endpoints de la API
 
 ## 1. Endpoints para Héroes
