@@ -62,6 +62,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.GET, "/heroes/{id}").hasRole("USER")
                                 .requestMatchers(HttpMethod.GET, "/objetos/").hasRole("USER")
                                 .requestMatchers(HttpMethod.GET, "/objetos/{id}").hasRole("USER")
+                                .anyRequest().denyAll()
 
                 )
                 .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults())) // Establecemos el que el control de autenticación se realice por JWT
