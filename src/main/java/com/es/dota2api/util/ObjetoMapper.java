@@ -15,12 +15,12 @@ public class ObjetoMapper {
 
         Objeto objeto = new Objeto();
         objeto.setNombre(dto.getNombre());
-        objeto.setDanioFisico(Long.valueOf(dto.getDanioFisico()));
-        objeto.setDanioMagico(Long.valueOf(dto.getDanioMagico()));
-        objeto.setVida(Long.valueOf(dto.getVida()));
-        objeto.setMana(Long.valueOf(dto.getMana()));
-        objeto.setRegenMana(Float.valueOf(dto.getRegenMana()));
-        objeto.setRegenVida(Float.valueOf(dto.getRegenVida()));
+        objeto.setDanioFisico(dto.getDanioFisico());
+        objeto.setDanioMagico(dto.getDanioMagico());
+        objeto.setVida(dto.getVida());
+        objeto.setMana(dto.getMana());
+        objeto.setRegenMana(dto.getRegenMana());
+        objeto.setRegenVida(dto.getRegenVida());
         objeto.setDescripcion(dto.getDescripcion());
 
         return objeto;
@@ -34,12 +34,12 @@ public class ObjetoMapper {
 
         ObjetoDTO dto = new ObjetoDTO();
         dto.setNombre(objeto.getNombre());
-        dto.setDanioFisico(String.valueOf(objeto.getDanioFisico()));
-        dto.setDanioMagico(String.valueOf(objeto.getDanioMagico()));
-        dto.setVida(String.valueOf(objeto.getVida()));
-        dto.setMana(String.valueOf(objeto.getMana()));
-        dto.setRegenMana(String.valueOf(objeto.getRegenMana()));
-        dto.setRegenVida(String.valueOf(objeto.getRegenVida()));
+        dto.setDanioFisico(objeto.getDanioFisico());
+        dto.setDanioMagico(objeto.getDanioMagico());
+        dto.setVida(objeto.getVida());
+        dto.setMana(objeto.getMana());
+        dto.setRegenMana(objeto.getRegenMana());
+        dto.setRegenVida(objeto.getRegenVida());
         dto.setDescripcion(objeto.getDescripcion());
 
         return dto;

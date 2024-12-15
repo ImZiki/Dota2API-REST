@@ -26,7 +26,7 @@ public class ObjetoController {
 
     // Endpoint GET para obtener un objeto por su ID
     @GetMapping("/{id}")
-    public ResponseEntity<ObjetoDTO> getObjectById(@PathVariable String id) {
+    public ResponseEntity<?> getObjectById(@PathVariable String id) {
         ObjetoDTO objeto = objetoService.getObjectById(id);
         if (objeto == null) throw new ObjectNotFoundException("Heroe no encontrado");
         return new ResponseEntity<>(objeto, HttpStatus.OK);
@@ -34,20 +34,20 @@ public class ObjetoController {
 
     // Endpoint POST para crear un nuevo objeto
     @PostMapping("/")
-    public ResponseEntity<ObjetoDTO> createObject(@RequestBody ObjetoDTO objetoDTO) {
+    public ResponseEntity<?> createObject(@RequestBody ObjetoDTO objetoDTO) {
         return new ResponseEntity<>(objetoService.createObject(objetoDTO), HttpStatus.CREATED);
     }
 
     // Endpoint PUT para actualizar un objeto existente
     @PutMapping("/{id}")
-    public ResponseEntity<ObjetoDTO> updateObject(@PathVariable String id, @RequestBody ObjetoDTO objetoDTO) {
+    public ResponseEntity<?> updateObject(@PathVariable String id, @RequestBody ObjetoDTO objetoDTO) {
         if (objetoDTO == null) throw new IllegalArgumentException("Objeto nulo");
         return new ResponseEntity<>(objetoService.updateObject(id, objetoDTO), HttpStatus.OK);
     }
 
     // Endpoint DELETE para eliminar un objeto por su ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteObject(@PathVariable String id) {
+    public ResponseEntity<?> deleteObject(@PathVariable String id) {
         if(id == null || id.isEmpty()) throw new IllegalArgumentException("ID nulo");
         objetoService.deleteObject(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

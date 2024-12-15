@@ -33,7 +33,7 @@ public class UsuarioController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public String login(
+    public ResponseEntity<?> login(
             @RequestBody UsuarioLoginDTO usuarioLoginDTO
     ) {
 
@@ -53,7 +53,7 @@ public class UsuarioController {
             throw new InternalServerErrorException("Error al generar el token de autenticación");
         }
 
-        return token;
+        return new ResponseEntity<>(token, HttpStatus.OK);
 
     }
     @PostMapping("/register")
